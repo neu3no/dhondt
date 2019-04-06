@@ -20,19 +20,6 @@ page = (function(exports){
 			"cfa" : "Piratenpartei Kreisverband Chemnitz (Chemnitz für Alle)",
 			"dpa" : "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative (Die PARTEI)"
 		};
-		var parties = {
-			"pds" : "DIE LINKE",
-			"cdu" : "CDU",
-			"spd" : "SPD",
-			"fdp" : "FDP",
-			"b90" : "GRÜNE",
-			"dsu" : "PRO CHEMNITZ.DSU",
-			"vos" : "Vosi",
-			"npd" : "NPD",
-			"afd" : "AfD",
-			"dpa" : "Die PARTEI",
-			"cfa" : "PIRATEN Chemnitz"
-		};
 		
 		dhondt.init({
 			"seats" : 60,
