@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Höchstzahlenverfahren</title>
+		<meta charset="utf-8">
+		<script>
+			function print(txt){
+				var element = document.querySelector("pre");
+				element.innerText = "";
+				element.innerText += txt + "\n";
+			}
+			
+			var gen_id = (function(){
+				var last = 0;
+				return function(){ 
+					return "__id__" + (last++); 
+				};
+			})();
+			
+			function clone(oid, target){
+				var temp = document.createElement("span");
+				temp.innerHTML = document.querySelector(oid).innerHTML;
+				var id = gen_id();
+				temp.querySelector("*").setAttribute("id", id);
+				for (var i = 0; i<temp.children.length; i++) {
+					var node = temp.children[i];
+					target.appendChild(node);
+				}
+				return target.querySelector("#"+id); 
+			}
+		</script>
+		<script src="js/dhondt.js"></script>
+		<script src="js/view.js"></script>
+		<script src="js/index.js"></script>
+		
+		<style>
+			
+			span.votes {
+				display:flex;
+				margin-bottom: 0.5em;
+			}
+			span.votes label{
+				margin-right: 1em;
+			}
+			#inputs {
+			    display: flex;
+			    flex-flow: column;
+			    align-items: flex-end;
+			}
+		</style>
+	</head>
+	<body>
+		<section id="inputs">
+		</section>
+
+		<pre></pre>
+		
+		<template id="votes">
+			<span class='votes'>
+				<label class='votes'></label>
+				<input type="number" class='votes'/>
+				<label class='seats'>Sitze: </label>
+				<input type="number" class='seats' readonly/>
+			</span>
+		</template>
+		
+	</body>
+</html>
